@@ -1,7 +1,7 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net7.0-android;net7.0-ios</TargetFrameworks>
+		<TargetFrameworks>net8.0-android;net8.0-ios</TargetFrameworks>
 		<RootNamespace>Playground</RootNamespace>
 		<UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>
@@ -49,7 +49,7 @@
     </ItemGroup>
 
     <!-- ios entitlements -->
-    <PropertyGroup Condition="'$(TargetFramework)' == 'net7.0-ios'">
+    <PropertyGroup Condition="'$(TargetFramework)' == 'net8.0-ios'">
         <CodesignEntitlements>Platforms\iOS\Entitlements.plist</CodesignEntitlements>
     </PropertyGroup>
 
@@ -62,37 +62,38 @@
 
     <!-- nuget packages -->
     <ItemGroup>
-        <PackageReference Include="CommunityToolkit.Maui" Version="1.2.0" />
-        <PackageReference Include="CommunityToolkit.Maui.Markup" Version="1.0.1" />
+        <PackageReference Include="CommunityToolkit.Maui" Version="7.0.1" />
+        <PackageReference Include="CommunityToolkit.Maui.Markup" Version="4.0.0" />
         <PackageReference Include="Genesis.Observables" Version="3.0.0" />
         <PackageReference Include="Genesis.Logging" Version="3.0.0" />
-        <PackageReference Include="ReactiveUI" Version="18.3.1" />
-        <PackageReference Include="ReactiveUI.Fody" Version="18.3.1" />
-        <PackageReference Include="ReactiveUI.Maui" Version="18.3.1" />
+        <PackageReference Include="ReactiveUI" Version="19.5.41" />
+        <PackageReference Include="ReactiveUI.Fody" Version="19.5.41" />
+        <PackageReference Include="ReactiveUI.Maui" Version="19.5.41" />
     </ItemGroup>
 
-    <ItemGroup Condition="'$(TargetFramework)' == 'net7.0-ios'">
+    <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-ios'">
     </ItemGroup>
 
-    <ItemGroup Condition="'$(TargetFramework)' == 'net7.0-android'">
-        <PackageReference Include="Xamarin.AndroidX.Core" Version="1.12.0.2" />
-        <PackageReference Include="Xamarin.AndroidX.Collection" Version="1.3.0.1" />
-        <PackageReference Include="Xamarin.AndroidX.Collection.Ktx" Version="1.3.0.1" />
-        <PackageReference Include="Xamarin.AndroidX.Activity.Ktx" Version="1.8.0.1" />
-        <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.6.0.2" />
+    <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android'">
+        <PackageReference Include="Xamarin.AndroidX.Core" Version="1.12.0.3" />
+        <PackageReference Include="Xamarin.AndroidX.Collection" Version="1.3.0.2" />
+        <PackageReference Include="Xamarin.AndroidX.Collection.Ktx" Version="1.3.0.2" />
+        <PackageReference Include="Xamarin.AndroidX.Activity.Ktx" Version="1.8.2" />
+        
+    <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.7.0.1" />
     </ItemGroup>
 
     <!-- platform assets -->
-    <ItemGroup Condition="'$(TargetFramework)' == 'net7.0-android'">
+    <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android'">
         <GoogleServicesJson Include="google-services.json" />
     </ItemGroup>
 
-    <ItemGroup Condition="'$(TargetFramework)' == 'net7.0-ios'">
+    <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-ios'">
         <BundleResource Include="GoogleService-Info.plist" />
     </ItemGroup>
 
     <!-- needed for android build to work -->
-    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-android|AnyCPU'">
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
       <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     </PropertyGroup>
 </Project>

@@ -55,7 +55,8 @@ You can use [Firebase Authentication](https://firebase.google.com/docs/auth) to 
 - Call `FirebaseAuthImplementation.HandleActivityResultAsync(requestCode, resultCode, data);` from `MainActivity.OnActivityResult(...)`
 - If you are on version 2.0.5 or later, add the following package to your project's `.csproj` file to prevent build errors:
 ```xml
-  <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.6.0.2" />
+  
+    <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.7.0.1" />
 ```
 
 For more specific instructions take a look at the official [Firebase documentation](https://firebase.google.com/docs/auth/android/start?hl=en)
