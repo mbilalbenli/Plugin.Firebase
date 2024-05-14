@@ -59,7 +59,7 @@
         <None Remove=".vs\**" />
         <None Remove=".idea\**" />
         <None Include="..\..\art\icon.png" Pack="true" PackagePath="" />
-        <None Include="..\..\docs\functions.md" Pack="true" PackagePath="\"/>
+        <None Include="..\..\docs\functions.md" Pack="true" PackagePath="\" />
 
         <Compile Include="Shared\**\*.cs" />
     </ItemGroup>
@@ -78,7 +78,7 @@
     </ItemGroup>
 
     <!-- nuget packages -->
-    <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android'"><PackageReference Include="Xamarin.Firebase.Functions" Version="120.4.0.1" />
+    <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android'"><PackageReference Include="Xamarin.Firebase.Functions" Version="120.4.0.2" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-ios'">

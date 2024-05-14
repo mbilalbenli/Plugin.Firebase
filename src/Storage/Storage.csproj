@@ -59,7 +59,7 @@
         <None Remove=".vs\**" />
         <None Remove=".idea\**" />
         <None Include="..\..\art\icon.png" Pack="true" PackagePath="" />
-        <None Include="..\..\docs\storage.md" Pack="true" PackagePath="\"/>
+        <None Include="..\..\docs\storage.md" Pack="true" PackagePath="\" />
 
         <Compile Include="Shared\**\*.cs" />
     </ItemGroup>
@@ -79,8 +79,8 @@
 
     <!-- nuget packages -->
     <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android'">
-        <PackageReference Include="Xamarin.Firebase.Storage" Version="120.3.0.1" />
-        <PackageReference Include="Xamarin.Firebase.Storage.Common" Version="117.0.0.13" />
+        <PackageReference Include="Xamarin.Firebase.Storage" Version="120.3.0.2" />
+        <PackageReference Include="Xamarin.Firebase.Storage.Common" Version="117.0.0.14" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-ios'">
