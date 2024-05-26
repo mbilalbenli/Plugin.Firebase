@@ -73,7 +73,7 @@
     </ItemGroup>
 
     <!-- nuget packages -->
-    <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android'"><PackageReference Include="Xamarin.Firebase.Dynamic.Links" Version="121.2.0.2" />
+    <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android'"><PackageReference Include="Xamarin.Firebase.Dynamic.Links" Version="121.2.0.3" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-ios'">

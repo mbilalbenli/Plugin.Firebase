@@ -79,8 +79,8 @@
 
     <!-- nuget packages -->
     <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android'">
-        <PackageReference Include="Xamarin.Firebase.Storage" Version="120.3.0.2" />
-        <PackageReference Include="Xamarin.Firebase.Storage.Common" Version="117.0.0.14" />
+        <PackageReference Include="Xamarin.Firebase.Storage" Version="120.3.0.3" />
+        <PackageReference Include="Xamarin.Firebase.Storage.Common" Version="117.0.0.15" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-ios'">

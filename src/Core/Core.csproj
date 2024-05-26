@@ -76,8 +76,8 @@
     </ItemGroup>
 
     <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android'">
-      <PackageReference Include="GoogleGson" Version="2.10.1.8" />
-      <PackageReference Include="Xamarin.Firebase.Common" Version="120.4.2.2" />
+      <PackageReference Include="GoogleGson" Version="2.10.1.9" />
+      <PackageReference Include="Xamarin.Firebase.Common" Version="120.4.2.3" />
     </ItemGroup>
 
 </Project>

@@ -79,7 +79,7 @@
 
     <!-- nuget packages -->
     <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android'">
-        <PackageReference Include="Xamarin.Firebase.Crashlytics" Version="118.6.2" />
+        <PackageReference Include="Xamarin.Firebase.Crashlytics" Version="118.6.2.1" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-ios'">
