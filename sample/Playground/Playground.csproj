@@ -62,13 +62,13 @@
 
     <!-- nuget packages -->
     <ItemGroup>
-        <PackageReference Include="CommunityToolkit.Maui" Version="7.0.1" />
+        <PackageReference Include="CommunityToolkit.Maui" Version="9.0.0" />
         <PackageReference Include="CommunityToolkit.Maui.Markup" Version="4.0.0" />
         <PackageReference Include="Genesis.Observables" Version="3.0.0" />
         <PackageReference Include="Genesis.Logging" Version="3.0.0" />
-        <PackageReference Include="ReactiveUI" Version="19.5.41" />
+        <PackageReference Include="ReactiveUI" Version="20.1.1" />
         <PackageReference Include="ReactiveUI.Fody" Version="19.5.41" />
-        <PackageReference Include="ReactiveUI.Maui" Version="19.5.41" />
+        <PackageReference Include="ReactiveUI.Maui" Version="20.1.1" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-ios'">
@@ -96,4 +96,10 @@
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
       <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     </PropertyGroup>
+    <ItemGroup>
+      <PackageReference Update="Microsoft.Maui.Controls" Version="8.0.40" />
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Update="Microsoft.Maui.Controls.Compatibility" Version="8.0.40" />
+    </ItemGroup>
 </Project>
