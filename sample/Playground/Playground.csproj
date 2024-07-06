@@ -18,9 +18,9 @@
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
 		<ApplicationVersion>1</ApplicationVersion>
 
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
-    <TargetPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">33</TargetPlatformVersion>
+		<!--<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>-->
+    <!--<TargetPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">33</TargetPlatformVersion>-->
 		<OutputType>Exe</OutputType>
 	</PropertyGroup>
 
@@ -62,7 +62,7 @@
 
     <!-- nuget packages -->
     <ItemGroup>
-        <PackageReference Include="CommunityToolkit.Maui" Version="9.0.0" />
+        <PackageReference Include="CommunityToolkit.Maui" Version="9.0.1" />
         <PackageReference Include="CommunityToolkit.Maui.Markup" Version="4.0.0" />
         <PackageReference Include="Genesis.Observables" Version="3.0.0" />
         <PackageReference Include="Genesis.Logging" Version="3.0.0" />
@@ -74,14 +74,13 @@
     <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-ios'">
     </ItemGroup>
 
-    <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android'">
-        <PackageReference Include="Xamarin.AndroidX.Core" Version="1.12.0.3" />
-        <PackageReference Include="Xamarin.AndroidX.Collection" Version="1.3.0.2" />
-        <PackageReference Include="Xamarin.AndroidX.Collection.Ktx" Version="1.3.0.2" />
-        <PackageReference Include="Xamarin.AndroidX.Activity.Ktx" Version="1.8.2" />
-        
-    <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.7.0.1" />
-    </ItemGroup>
+    <!--<ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android'">
+        <PackageReference Include="Xamarin.AndroidX.Activity.Ktx" Version="1.9.0.3" />
+        <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.8.0.3" />
+        <PackageReference Include="Xamarin.AndroidX.Collection" Version="1.4.0.5" />
+        <PackageReference Include="Xamarin.AndroidX.Collection.Ktx" Version="1.4.0.4" />
+        <PackageReference Include="Xamarin.AndroidX.Core" Version="1.13.1.2" />
+    </ItemGroup>-->
 
     <!-- platform assets -->
     <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android'">
@@ -97,9 +96,26 @@
       <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     </PropertyGroup>
     <ItemGroup>
-      <PackageReference Update="Microsoft.Maui.Controls" Version="8.0.40" />
+      <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.40" />
     </ItemGroup>
     <ItemGroup>
-      <PackageReference Update="Microsoft.Maui.Controls.Compatibility" Version="8.0.40" />
+      <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.40" />
+      <PackageReference Include="Xamarin.Build.Download" Version="0.11.4" />
     </ItemGroup>
+
+    <Target Name="LinkWithSwift" DependsOnTargets="_ParseBundlerArguments;_DetectSdkLocations" BeforeTargets="_LinkNativeExecutable">
+        <PropertyGroup>
+            <_SwiftPlatform Condition="$(RuntimeIdentifier.StartsWith('iossimulator-'))">iphonesimulator</_SwiftPlatform>
+            <_SwiftPlatform Condition="$(RuntimeIdentifier.StartsWith('ios-'))">iphoneos</_SwiftPlatform>
+        </PropertyGroup>
+        <ItemGroup>
+            <_CustomLinkFlags Include="-L" />
+            <_CustomLinkFlags Include="/usr/lib/swift" />
+            <_CustomLinkFlags Include="-L" />
+            <_CustomLinkFlags Include="$(_SdkDevPath)/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/$(_SwiftPlatform)" />
+            <_CustomLinkFlags Include="-Wl,-rpath" />
+            <_CustomLinkFlags Include="-Wl,/usr/lib/swift" />
+        </ItemGroup>
+    </Target>
+
 </Project>
