@@ -242,3 +242,5 @@ _Pvt_Extensions
 /sample/Playground/google-services.json
 /tests/Plugin.Firebase.IntegrationTests/GoogleService-Info.plist
 /tests/Plugin.Firebase.IntegrationTests/google-services.json
+
+*.apk
